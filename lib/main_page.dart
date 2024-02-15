@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/constant.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -74,17 +75,20 @@ class _MainPageState extends State<MainPage> {
                 children: [
                   //Male Button
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 25.0,
+                    ),
                     child: Column(
                       children: [
                         Icon(
                           Icons.male_sharp,
                           size: 120.0,
+                          color: ktextColor,
                         ),
                         Text(
                           'Male',
                           style: TextStyle(
-                            fontSize: 20.0,
+                            fontSize: 22.0,
                           ),
                         ),
                       ],
@@ -93,17 +97,20 @@ class _MainPageState extends State<MainPage> {
                   Spacer(),
                   //Female Button
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 25.0,
+                    ),
                     child: Column(
                       children: [
                         Icon(
                           Icons.female_sharp,
                           size: 120.0,
+                          color: ktextColor,
                         ),
                         Text(
                           'Female',
                           style: TextStyle(
-                            fontSize: 20.0,
+                            fontSize: 22.0,
                           ),
                         ),
                       ],
@@ -127,20 +134,17 @@ class _MainPageState extends State<MainPage> {
                         ),
                         Text(
                           '170',
-                          style: TextStyle(
-                            fontSize: 35.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: kweightHeightFont,
                         ),
                         Row(
                           children: [
                             FloatingActionButton(
                               onPressed: null,
-                              backgroundColor: Colors.lightGreen,
+                              backgroundColor: Colors.green,
                               child: Icon(
-                                Icons.remove,
+                                Icons.add,
                                 size: 30.0,
-                                color: Colors.black,
+                                color: Colors.white,
                               ),
                             ),
                             SizedBox(
@@ -148,11 +152,11 @@ class _MainPageState extends State<MainPage> {
                             ),
                             FloatingActionButton(
                               onPressed: null,
-                              backgroundColor: Colors.lightBlue,
+                              backgroundColor: Colors.red,
                               child: Icon(
-                                Icons.add,
+                                Icons.remove,
                                 size: 30.0,
-                                color: Colors.black,
+                                color: Colors.white,
                               ),
                             ),
                           ],
@@ -177,20 +181,17 @@ class _MainPageState extends State<MainPage> {
                         ),
                         Text(
                           '70',
-                          style: TextStyle(
-                            fontSize: 35.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: kweightHeightFont,
                         ),
                         Row(
                           children: [
                             FloatingActionButton(
                               onPressed: null,
-                              backgroundColor: Colors.lightGreen,
+                              backgroundColor: Colors.green,
                               child: Icon(
-                                Icons.remove,
+                                Icons.add,
                                 size: 30.0,
-                                color: Colors.black,
+                                color: Colors.white,
                               ),
                             ),
                             SizedBox(
@@ -198,11 +199,11 @@ class _MainPageState extends State<MainPage> {
                             ),
                             FloatingActionButton(
                               onPressed: null,
-                              backgroundColor: Colors.lightBlue,
+                              backgroundColor: Colors.red,
                               child: Icon(
-                                Icons.add,
+                                Icons.remove,
                                 size: 30.0,
-                                color: Colors.black,
+                                color: Colors.white,
                               ),
                             ),
                           ],
@@ -242,11 +243,7 @@ class _MainPageState extends State<MainPage> {
                             children: [
                               Text(
                                 '25.0',
-                                style: TextStyle(
-                                  color: Colors.blueGrey,
-                                  fontSize: 55.0,
-                                  fontWeight: FontWeight.w900,
-                                ),
+                                style: bimFont,
                               ),
                             ],
                           ),
@@ -266,14 +263,14 @@ class _MainPageState extends State<MainPage> {
                               Row(
                                 children: [
                                   Icon(
-                                    Icons.circle, color: Colors.blue,
+                                    Icons.circle,
+                                    color: Colors.blue,
                                   ),
-                                  Spacer(),
                                   Text(
                                     'Underweight',
                                     style: TextStyle(
                                       color: Colors.blue,
-                                      fontSize: 25.0,
+                                      fontSize: 20.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -292,5 +289,9 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
     );
+  }
+
+  void onHeightMinus() {
+    print('height minus');
   }
 }
