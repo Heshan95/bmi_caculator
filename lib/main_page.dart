@@ -63,7 +63,10 @@ class _MainPageState extends State<MainPage> {
 
         //Body Area
         body: Container(
-          color: Colors.grey,
+          color: Colors.white,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+          ),
           //Gender Button
           child: const Column(
             children: [
@@ -74,8 +77,16 @@ class _MainPageState extends State<MainPage> {
                     padding: EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        Text('Male Icon'),
-                        Text('Male'),
+                        Icon(
+                          Icons.male_sharp,
+                          size: 120.0,
+                        ),
+                        Text(
+                          'Male',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -85,12 +96,196 @@ class _MainPageState extends State<MainPage> {
                     padding: EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        Text('Female Icon'),
-                        Text('Male'),
+                        Icon(
+                          Icons.female_sharp,
+                          size: 120.0,
+                        ),
+                        Text(
+                          'Female',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ],
+              ),
+              SizedBox(
+                height: 50.0,
+              ),
+              Row(
+                children: [
+                  //height
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Height',
+                          style: TextStyle(fontSize: 20.0),
+                        ),
+                        Text(
+                          '170',
+                          style: TextStyle(
+                            fontSize: 35.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            FloatingActionButton(
+                              onPressed: null,
+                              backgroundColor: Colors.lightGreen,
+                              child: Icon(
+                                Icons.remove,
+                                size: 30.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 25.0,
+                            ),
+                            FloatingActionButton(
+                              onPressed: null,
+                              backgroundColor: Colors.lightBlue,
+                              child: Icon(
+                                Icons.add,
+                                size: 30.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 50.0,
+                  ),
+                  Spacer(),
+                  //weight
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Weight',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
+                        ),
+                        Text(
+                          '70',
+                          style: TextStyle(
+                            fontSize: 35.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            FloatingActionButton(
+                              onPressed: null,
+                              backgroundColor: Colors.lightGreen,
+                              child: Icon(
+                                Icons.remove,
+                                size: 30.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 25.0,
+                            ),
+                            FloatingActionButton(
+                              onPressed: null,
+                              backgroundColor: Colors.lightBlue,
+                              child: Icon(
+                                Icons.add,
+                                size: 30.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 50.0,
+              ),
+
+              // Calculation Area
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Your BMI Score: ',
+                            style: TextStyle(
+                              fontSize: 25.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                '25.0',
+                                style: TextStyle(
+                                  color: Colors.blueGrey,
+                                  fontSize: 55.0,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Spacer(),
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                'Your Category is:',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.circle, color: Colors.blue,
+                                  ),
+                                  Spacer(),
+                                  Text(
+                                    'Underweight',
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
