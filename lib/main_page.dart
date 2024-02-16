@@ -69,9 +69,9 @@ class _MainPageState extends State<MainPage> {
             horizontal: 16.0,
           ),
           //Gender Button
-          child: const Column(
+          child: Column(
             children: [
-              Row(
+              const Row(
                 children: [
                   //Male Button
                   Padding(
@@ -118,13 +118,13 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50.0,
               ),
               Row(
                 children: [
                   //height
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Column(
                       children: [
@@ -164,43 +164,43 @@ class _MainPageState extends State<MainPage> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 50.0,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   //weight
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           'Weight',
                           style: TextStyle(
                             fontSize: 20.0,
                           ),
                         ),
-                        Text(
+                        const Text(
                           '70',
                           style: kweightHeightFont,
                         ),
                         Row(
                           children: [
                             FloatingActionButton(
-                              onPressed: null,
+                              onPressed: onHeight,
                               backgroundColor: Colors.green,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.add,
                                 size: 30.0,
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 25.0,
                             ),
                             FloatingActionButton(
-                              onPressed: null,
+                              onPressed: onHeight,
                               backgroundColor: Colors.red,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.remove,
                                 size: 30.0,
                                 color: Colors.white,
@@ -213,12 +213,12 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50.0,
               ),
 
               // Calculation Area
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Column(
                   children: [
@@ -291,7 +291,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  void onHeightMinus() {
-    print('height minus');
+  void onHeight() {
+    print('object');
   }
 }
