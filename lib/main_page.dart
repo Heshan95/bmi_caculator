@@ -9,6 +9,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int height = 110;
+  int weight = 30;
+  late double bmi = bmiCalculation(height: height, weight: weight);
+
+  String gender = '';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -71,49 +77,79 @@ class _MainPageState extends State<MainPage> {
           //Gender Button
           child: Column(
             children: [
-              const Row(
+              Row(
                 children: [
                   //Male Button
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 25.0,
-                    ),
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.male_sharp,
-                          size: 120.0,
-                          color: ktextColor,
-                        ),
-                        Text(
-                          'Male',
-                          style: TextStyle(
-                            fontSize: 22.0,
+                  GestureDetector(
+                    onTap: () {
+                      setState(
+                        () {
+                          gender = 'M';
+                        },
+                      );
+                    },
+                    child: Container(
+                      height: 175,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: gender == 'M' ? knormalGlassColor : kglassColor,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 25.0,
+                      ),
+                      child: const Column(
+                        children: [
+                          Icon(
+                            Icons.male_sharp,
+                            size: 120.0,
+                            color: ktextColor,
                           ),
-                        ),
-                      ],
+                          Text(
+                            'Male',
+                            style: TextStyle(
+                              fontSize: 22.0,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   //Female Button
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 25.0,
-                    ),
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.female_sharp,
-                          size: 120.0,
-                          color: ktextColor,
-                        ),
-                        Text(
-                          'Female',
-                          style: TextStyle(
-                            fontSize: 22.0,
+                  GestureDetector(
+                    onTap: () {
+                      setState(
+                        () {
+                          gender = 'F';
+                        },
+                      );
+                    },
+                    child: Container(
+                      height: 175,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: gender == 'F' ? knormalGlassColor : kglassColor,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 25.0,
+                      ),
+                      child: const Column(
+                        children: [
+                          Icon(
+                            Icons.female_sharp,
+                            size: 120.0,
+                            color: ktextColor,
                           ),
-                        ),
-                      ],
+                          Text(
+                            'Female',
+                            style: TextStyle(
+                              fontSize: 22.0,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -124,36 +160,56 @@ class _MainPageState extends State<MainPage> {
               Row(
                 children: [
                   //height
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           'Height',
                           style: TextStyle(fontSize: 20.0),
                         ),
                         Text(
-                          '170',
+                          "$height",
                           style: kweightHeightFont,
                         ),
                         Row(
                           children: [
                             FloatingActionButton(
-                              onPressed: null,
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    if (height < 250) {
+                                      height++;
+                                      bmi = bmiCalculation(
+                                          height: height, weight: weight);
+                                    }
+                                  },
+                                );
+                              },
                               backgroundColor: Colors.green,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.add,
                                 size: 30.0,
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 25.0,
                             ),
                             FloatingActionButton(
-                              onPressed: null,
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    if (height > 80) {
+                                      height--;
+                                      bmi = bmiCalculation(
+                                          height: height, weight: weight);
+                                    }
+                                  },
+                                );
+                              },
                               backgroundColor: Colors.red,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.remove,
                                 size: 30.0,
                                 color: Colors.white,
@@ -170,7 +226,7 @@ class _MainPageState extends State<MainPage> {
                   const Spacer(),
                   //weight
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
                         const Text(
@@ -179,14 +235,24 @@ class _MainPageState extends State<MainPage> {
                             fontSize: 20.0,
                           ),
                         ),
-                        const Text(
-                          '70',
+                        Text(
+                          '$weight',
                           style: kweightHeightFont,
                         ),
                         Row(
                           children: [
                             FloatingActionButton(
-                              onPressed: onHeight,
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    if (weight < 200) {
+                                      weight++;
+                                      bmi = bmiCalculation(
+                                          height: height, weight: weight);
+                                    }
+                                  },
+                                );
+                              },
                               backgroundColor: Colors.green,
                               child: const Icon(
                                 Icons.add,
@@ -198,7 +264,17 @@ class _MainPageState extends State<MainPage> {
                               width: 25.0,
                             ),
                             FloatingActionButton(
-                              onPressed: onHeight,
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    if (weight > 25) {
+                                      weight--;
+                                      bmi = bmiCalculation(
+                                          height: height, weight: weight);
+                                    }
+                                  },
+                                );
+                              },
                               backgroundColor: Colors.red,
                               child: const Icon(
                                 Icons.remove,
@@ -218,11 +294,11 @@ class _MainPageState extends State<MainPage> {
               ),
 
               // Calculation Area
-              const Padding(
-                padding: EdgeInsets.all(8.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Row(
                         children: [
@@ -238,22 +314,22 @@ class _MainPageState extends State<MainPage> {
                     Row(
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: [
                               Text(
-                                '25.0',
+                                bmi.toStringAsFixed(2),
                                 style: bimFont,
                               ),
                             ],
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: [
-                              Text(
+                              const Text(
                                 'Your Category is:',
                                 style: TextStyle(
                                   color: Colors.black,
@@ -262,13 +338,13 @@ class _MainPageState extends State<MainPage> {
                               ),
                               Row(
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     Icons.circle,
                                     color: Colors.blue,
                                   ),
                                   Text(
-                                    'Underweight',
-                                    style: TextStyle(
+                                    bmiStatment(bmi),
+                                    style: const TextStyle(
                                       color: Colors.blue,
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.bold,
@@ -291,7 +367,22 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  void onHeight() {
-    print('object');
+  double bmiCalculation({required height, required weight}) {
+    double calValue = (weight / (height * height)) * 10000;
+    return calValue;
+  }
+
+  String bmiStatment(bmi) {
+    if (bmi > 30) {
+      return 'Obese';
+    } else if (bmi >= 25) {
+      return 'Overweight';
+    } else if (bmi >= 23) {
+      return 'Pre-overweight';
+    } else if (bmi >= 18) {
+      return 'Normal';
+    } else {
+      return 'Underweight';
+    }
   }
 }
